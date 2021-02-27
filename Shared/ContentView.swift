@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
+
+let realmApp = RealmSwift.App(id: "tacksdev-ldkft")
 
 struct ContentView: View {
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button("Login..") {
+            realmApp.login(credentials: .anonymous) { result in
+                print("Result: \(result)")
+            }
+        }
     }
 }
 
